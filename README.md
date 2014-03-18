@@ -3,6 +3,6 @@ tags: sinatra, basic
 language: ruby
 ---
 
-# Sinatra Blog 
+# Temperatures 
 
-Right now this is an example app without any tests. It's solved. Just for demo purposes.
+Basic clone of weather.com - allows user to see current temperature by searching zipcode.
