@@ -1,4 +1,3 @@
-# require_relative '../../config/environment'
 require 'nokogiri'
 require 'open-uri'
 
@@ -6,8 +5,6 @@ class Scraper
 
   def initialize(zipcode)
     @doc = Nokogiri::HTML(open("http://www.weather.com/weather/today/#{zipcode}"))
-    # self.temperature
-    # self.location
   end
 
   def temperature
