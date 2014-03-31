@@ -4,7 +4,6 @@ class ForecastsController < ApplicationController
   end
 
   get '/forecasts' do
-    # binding.pry
     # if request.location.data['zipcode'] != ""
       forecast_zipcode = request.location.data['zipcode']
     # else
