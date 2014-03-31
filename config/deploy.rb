@@ -1,6 +1,6 @@
 require 'bundler/capistrano' # for bundler support
 
-set :application, "Sinatra Weather"
+set :application, "sinatra_weather"
 set :repository,  "git@github.com:chriskohlbrenner/temperatures-sinatra.git"
 
 set :user, 'chris'
