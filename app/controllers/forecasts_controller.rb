@@ -4,7 +4,12 @@ class ForecastsController < ApplicationController
   end
 
   get '/forecasts' do
-    forecast_zipcode = "60187"
+    if request.location.data['zipcode'] != ""
+      forecast_zipcode = request.location.data['zipcode']
+    else
+      forecast_zipcode =  "10001"
+    end
+
     @forecast = Forecast.new(:zipcode => forecast_zipcode)
     @scraper = Scraper.new(forecast_zipcode)
     @forecast.location = @scraper.location
