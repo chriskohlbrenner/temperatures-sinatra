@@ -1,8 +1,6 @@
 <div class="container">
   <h2>The temperature in <%= @forecast.location if @forecast %> (<%= @forecast.zipcode if @forecast %>) is currently <u><%= @forecast.temperature if @forecast %>°F</u>.</h2>
   <ul>
-    Testing with more text!!
-
   <form role="form" action="/forecasts" class="new_forecast" id="new_forecast" method="post">
     <div class="form-group">
       <p><label for="zipcode">Find the current temperature of another zipcode:</label></p>
