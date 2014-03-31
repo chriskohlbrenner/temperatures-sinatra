@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'geocoder'
+# gem 'geocoder'
 gem 'nokogiri'
 require 'open-uri'
 gem 'sinatra'

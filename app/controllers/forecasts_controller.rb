@@ -1,7 +1,21 @@
 class ForecastsController < ApplicationController
+  get '/' do
+    redirect to "/forecasts"
+  end
+
   get '/forecasts' do
     @forecast = Forecast.all.last
     erb :"forecasts/index.html"
+
+    # weather_zipcode = params[:zipcode] || "10009"
+
+    # @forecast = Forecast.new(:zipcode => weather_zipcode)
+    # @scraper = Scraper.new(weather_zipcode)
+    # @forecast.location = @scraper.location
+    # @forecast.temperature = @scraper.temperature
+    # @forecast.save
+
+    # erb :"forecasts/index.html"
   end
 
   post '/forecasts' do
