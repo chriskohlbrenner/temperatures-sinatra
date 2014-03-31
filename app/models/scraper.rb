@@ -8,7 +8,7 @@ class Scraper
   end
 
   def temperature
-    @temperature = @doc.css("div.wx-temperature span[itemprop=temperature-fahrenheit]").text + "F"
+    @temperature = @doc.css("div.wx-temperature span[itemprop=temperature-fahrenheit]").text
   end
 
   def location
