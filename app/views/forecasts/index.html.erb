@@ -10,4 +10,7 @@
   </form>
 </div>
 
+<p><%= env %></p>
+<p><%= Rack::Request.new(env) %></p>
+<p><%= Rack::Request.new(env).location %></p>
 <p><%= @data %></p>
