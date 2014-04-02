@@ -5,8 +5,9 @@ class ForecastsController < ApplicationController
 
   get '/forecasts' do
     # if request.location.data['zipcode'] != ""
+    binding.pry
       request = Rack::Request.new(env)
-      @data = request.location.data['zipcode']
+      @data = request.location.data #['zipcode']
       forecast_zipcode = request.location.data['zipcode']
     # else
       # forecast_zipcode =  "10001"
