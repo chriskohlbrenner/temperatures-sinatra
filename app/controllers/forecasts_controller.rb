@@ -7,7 +7,7 @@ class ForecastsController < ApplicationController
     # if request.location.data['zipcode'] != ""
       request = Rack::Request.new(env)
       @request = request
-      @location = request.location
+      # @location = request.location
       @forecast_zipcode = request.location.data['zipcode']
     # else
       # forecast_zipcode =  "10001"
