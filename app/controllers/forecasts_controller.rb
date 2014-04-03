@@ -4,18 +4,14 @@ class ForecastsController < ApplicationController
   end
 
   get '/forecasts' do
-    # request = Rack::Request.new(env)
-    # latlong = request.location.data['latitude'] + "," + request.location.data['longitude']
-    # binding.pry
-    # if Geocoder.search(latlong)[0]
-    #   @forecast_zipcode = Geocoder.search(latlong)[0].data["address_components"].last["long_name"]
-    # else
-    #   @forecast_zipcode = "10001"
-    # end
-    # forecast_zipcode =
-    # else
-      forecast_zipcode =  "10001"
-    # end
+    request = Rack::Request.new(env)
+    latlong = request.location.data['latitude'] + "," + request.location.data['longitude']
+
+    if Geocoder.search(latlong)[0]
+      forecast_zipcode = Geocoder.search(latlong)[0].data["address_components"].last["long_name"]
+    else
+      forecast_zipcode = "10001"
+    end
 
     @forecast = Forecast.new(:zipcode => forecast_zipcode)
     @scraper = Scraper.new(forecast_zipcode)
