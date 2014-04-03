@@ -11,11 +11,11 @@ class ForecastsController < ApplicationController
     @latlong = @lat.to_s + "," + @long.to_s
     # latlong = request.location.data['latitude'] + "," + request.location.data['longitude']
 
-    if Geocoder.search(latlong)[0]
-      forecast_zipcode = Geocoder.search(latlong)[0].data["address_components"].last["long_name"]
-    else
+    # if Geocoder.search(latlong)[0]
+    #   forecast_zipcode = Geocoder.search(latlong)[0].data["address_components"].last["long_name"]
+    # else
       forecast_zipcode = "10001"
-    end
+    # end
 
     @forecast = Forecast.new(:zipcode => forecast_zipcode)
     @scraper = Scraper.new(forecast_zipcode)
