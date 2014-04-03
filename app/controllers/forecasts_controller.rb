@@ -11,8 +11,10 @@ class ForecastsController < ApplicationController
     
     if Geocoder.search(latlong)[0]
       forecast_zipcode = Geocoder.search(latlong)[0].data["address_components"].last["long_name"]
+      @current_loc = "near" + Geocoder.search(latlong)[1].data["formatted_address"]
     else
       forecast_zipcode = "10001"
+      @current_loc = "could not be found"
     end
 
     @forecast = Forecast.new(:zipcode => forecast_zipcode)
