@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem 'geokit'
 gem 'geocoder'
 gem 'nokogiri'
 require 'open-uri'

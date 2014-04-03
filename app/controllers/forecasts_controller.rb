@@ -4,11 +4,21 @@ class ForecastsController < ApplicationController
   end
 
   get '/forecasts' do
-    # if request.location.data['zipcode'] != ""
-    # binding.pry
-      request = Rack::Request.new(env)
-      @data = request.location.data #['zipcode']
-      forecast_zipcode = request.location.data['zipcode']
+    
+    # request = Rack::Request.new(env)
+    # @latitude = request.location.data['latitude']
+    # @longitude = request.location.data['longitude']
+    
+    # ip = env["REMOTE_ADDR"]
+
+    request = Rack::Request.new(env)
+    latlong = request.location.data['latitude'] + "," + request.location.data['longitude']
+    if Geocoder.search(latlong)[0]
+      forecast_zipcode = Geocoder.search(latlong)[0].data["address_components"].last["long_name"]
+    else
+      forecast_zipcode = "10001"
+    end
+    # forecast_zipcode =
     # else
       # forecast_zipcode =  "10001"
     # end
