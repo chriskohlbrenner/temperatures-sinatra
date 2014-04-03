@@ -8,7 +8,7 @@ class ForecastsController < ApplicationController
     request = Rack::Request.new(env)
     @lat = request.location.data['latitude']
     @long = request.location.data['longitude']
-    @latlong = @lat + @long
+    @latlong = @lat + ',' + @long
     # latlong = request.location.data['latitude'] + "," + request.location.data['longitude']
 
     # if Geocoder.search(latlong)[0]
