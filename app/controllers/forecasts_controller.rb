@@ -6,7 +6,7 @@ class ForecastsController < ApplicationController
   get '/forecasts' do
     # binding.pry
     request = Rack::Request.new(env)
-    # latlong = request.location.data['latitude'] + "," + request.location.data['longitude']
+    @latlong = request.location.data['latitude'] + "," + request.location.data['longitude']
 
     # if Geocoder.search(latlong)[0]
     #   forecast_zipcode = Geocoder.search(latlong)[0].data["address_components"].last["long_name"]
