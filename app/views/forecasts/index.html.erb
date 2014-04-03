@@ -1,11 +1,13 @@
-<div class="container">
-  <h2>The temperature in <%= @forecast.location if @forecast %> (<%= @forecast.zipcode if @forecast %>) is currently <u><%= @forecast.temperature if @forecast %>°F</u>.</h2>
-  <ul>
-  <form role="form" action="/forecasts" class="new_forecast" id="new_forecast" method="post">
-    <div class="form-group">
-      <p><label for="zipcode">Find the current temperature of another zipcode:</label></p>
-    </div>  
-      <p><input id="zipcode" name="zipcode" type="text" /></p>
-      <button type="submit" class="btn btn-default" >Find Temperature</button>
-  </form>
+<div class="jumbotron">
+  <div class="container">
+    <h2>The temperature in <%= @forecast.location if @forecast %> (<%= @forecast.zipcode if @forecast %>) is currently <%= @forecast.temperature if @forecast %>°F.</h2>
+    <ul>
+    <form role="form" action="/forecasts" class="new_forecast" id="new_forecast" method="post">
+      <div class="form-group">
+        <p><label for="zipcode">Find the current temperature of another zipcode:</label></p>
+      </div>  
+        <p><input id="zipcode" name="zipcode" type="text" placeholder="<%= @forecast.zipcode %>" /></p>
+        <button type="submit" class="btn btn-primary btn-lg" >Find Temperature</button>
+    </form>
+  </div>
 </div>
