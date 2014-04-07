@@ -3,6 +3,7 @@
   <p><i>[<%= @current_loc %>]</i></p>
   <div class="container">
     <h2>The temperature in <%= @forecast.location if @forecast %> (<%= @forecast.zipcode if @forecast %>) is currently <%= @forecast.temperature if @forecast %>°F.</h2>
+    <h4>Tomorrow will have a high of <%= @forecast.high_tomorrow %> and a low of <%= @forecast.low_tomorrow %>°F.<h4>
     <ul>
     <form role="form" action="/forecasts" class="new_forecast" id="new_forecast" method="post">
       <div class="form-group">

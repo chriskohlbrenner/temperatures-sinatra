@@ -5,18 +5,22 @@ class Scraper
 
   def initialize(zipcode)
     @doc = Nokogiri::HTML(open("http://www.weather.com/weather/today/#{zipcode}"))
-    @forecast_doc = Nokogiri::HTML(open("http://www.weather.com/weather/hourbyhour/graph/#{zipcode}"))
+    @forecast_tomorrow = Nokogiri::HTML(open("http://www.weather.com/weather/tomorrow/#{zipcode}"))
   end
 
   def temperature
-    @temperature = @doc.css("div.wx-temperature span[itemprop=temperature-fahrenheit]").text
+    @doc.css("div.wx-temperature span[itemprop=temperature-fahrenheit]").text
   end
 
   def location
-    @location = @doc.css("div.wx-location-title").text.gsub(/\d|\(|\)|Weather/, "").gsub("\n","")
+    @doc.css("div.wx-location-title").text.gsub(/\d|\(|\)|Weather/, "").gsub("\n","")
   end
 
-  def forecast
-    @forecast = nil#add parsing here
+  def high_tomorrow
+    @forecast_tomorrow.css("p.wx-temp").text.chomp.gsub("°","").gsub("F","").gsub(/High(.*?)Low/, "").strip
+  end
+
+  def low_tomorrow
+    @forecast_tomorrow.css("p.wx-temp").text.chomp.gsub("°","").gsub("F","").gsub(/(.*?)High/,"").gsub("Low","").strip
   end
 end

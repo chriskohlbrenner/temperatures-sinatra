@@ -4,6 +4,8 @@ class CreateForecasts < ActiveRecord::Migration
       t.string :temperature
       t.string :location
       t.string :zipcode
+      t.string :high_tomorrow
+      t.string :low_tomorrow
       t.timestamps
     end
   end
