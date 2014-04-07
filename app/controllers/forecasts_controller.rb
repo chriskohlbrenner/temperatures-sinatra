@@ -11,7 +11,7 @@ class ForecastsController < ApplicationController
     
     if Geocoder.search(latlong)[0]
       forecast_zipcode = Geocoder.search(latlong)[0].data["address_components"].last["long_name"]
-      @current_loc = "near " + Geocoder.search(latlong)[1].data["formatted_address"]
+      @current_loc = Geocoder.search(latlong)[1].data["formatted_address"]
     else
       forecast_zipcode = "10001"
       @current_loc = "could not be found"
@@ -34,7 +34,7 @@ class ForecastsController < ApplicationController
     @forecast.temperature = @scraper.temperature
     @forecast.high_tomorrow = @scraper.high_tomorrow
     @forecast.low_tomorrow = @scraper.low_tomorrow
-    
+      
     if @forecast.save
       erb :"forecasts/index.html"
     else
