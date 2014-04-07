@@ -17,10 +17,10 @@ class Scraper
   end
 
   def high_tomorrow
-    @forecast_tomorrow.css("p.wx-temp").text.chomp.gsub("°","").gsub("F","").gsub(/High(.*?)Low/, "").strip
+    @forecast_tomorrow.css("p.wx-temp").text.chomp.gsub("F","").gsub(/High(.*?)Low/, "").strip
   end
 
   def low_tomorrow
-    @forecast_tomorrow.css("p.wx-temp").text.chomp.gsub("°","").gsub("F","").gsub(/(.*?)High/,"").gsub("Low","").strip
+    @forecast_tomorrow.css("p.wx-temp").text.chomp.gsub("F","").gsub(/(.*?)High/,"").gsub("Low","").strip
   end
 end
