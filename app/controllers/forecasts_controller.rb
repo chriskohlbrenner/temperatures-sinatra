@@ -24,7 +24,7 @@ class ForecastsController < ApplicationController
     @forecast.high_tomorrow = @scraper.high_tomorrow
     @forecast.low_tomorrow = @scraper.low_tomorrow
     @forecast.save
-
+    binding.pry
     erb :"forecasts/index.html"
   end
 
@@ -33,7 +33,9 @@ class ForecastsController < ApplicationController
     @scraper = Scraper.new(params[:zipcode])
     @forecast.location = @scraper.location
     @forecast.temperature = @scraper.temperature
-
+    @forecast.high_tomorrow = @scraper.high_tomorrow
+    @forecast.low_tomorrow = @scraper.low_tomorrow
+    
     if @forecast.save
       erb :"forecasts/index.html"
     else
