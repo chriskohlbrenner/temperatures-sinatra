@@ -24,7 +24,6 @@ class ForecastsController < ApplicationController
     @forecast.high_tomorrow = @scraper.high_tomorrow
     @forecast.low_tomorrow = @scraper.low_tomorrow
     @forecast.save
-    binding.pry
     erb :"forecasts/index.html"
   end
 
