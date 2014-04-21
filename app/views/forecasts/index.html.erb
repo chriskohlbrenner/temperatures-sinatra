@@ -1,5 +1,11 @@
 <div class="jumbotron">
+
+<% if request.env['REQUEST_METHOD'] == "GET" %>
 <p>Current location (based on IP address): <i><%= @current_loc %></i></p>
+<% else %>
+<p><a href="/forecasts">Back to current location</a></p>
+<% end %>
+
   <div class="container">
     <h2>The temperature in <%= @forecast.location if @forecast %> (<%= @forecast.zipcode if @forecast %>) is currently <%= @forecast.temperature if @forecast %>°F.</h2>
     <h4>Tomorrow will have a high of <%= @forecast.high_tomorrow %>F and a low of <%= @forecast.low_tomorrow %>F.<h4>
